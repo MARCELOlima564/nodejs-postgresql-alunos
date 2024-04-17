@@ -1,5 +1,6 @@
 import pgp from "pg-promise";
 import { config } from "dotenv";
+
 import path, { join } from "path";
 import { fileURLToPath } from "url";
 
@@ -11,17 +12,7 @@ const host = process.env.DB_HOST;
 const port = process.env.DB_PORT;
 const database = process.env.DB_NAME;
 
-const dbURL =
-  "postgres://" +
-  user +
-  ":" +
-  password +
-  "@" +
-  host +
-  ":" +
-  port +
-  "/" +
-  database;
+const dbURL = `postgres://${user}:${password}@${host}:${port}/${database}`;
 
 const db = pgp()(dbURL);
 
